@@ -9,12 +9,14 @@ var raceHorsesApp = angular.module('raceHorsesApp', [])
 
 	$scope.startRace = function(){
 		$element = $(".btn-start");
-		$element.addClass('animated bounceIn expanded');
-		$element.text("Pulsa -> repetidamente");
-		$scope.params.raceStatus = true;
-		$scope.socketActions.startRace();
-		$scope.rightKeyEventListener();
-		$scope.finishLineListener();
+		if(!$element.hasClass('started')){
+			$element.addClass('animated bounceIn expanded started');
+			$element.text("Pulsa -> repetidamente");
+			$scope.params.raceStatus = true;
+			$scope.socketActions.startRace();
+			$scope.rightKeyEventListener();
+			$scope.finishLineListener();
+		}
 	};
 
 	$scope.stopRace = function(){
@@ -26,8 +28,11 @@ var raceHorsesApp = angular.module('raceHorsesApp', [])
 		$winner = $('.winner');
 		var winner_name = $winner.data('horse-number');
 
-		var btn = $(".btn-start");
-		btn.text("Ganó el " + winner_name +"!");
+		var $btn = $(".btn-start");
+		$btn.text("Ganó el " + winner_name +"!");
+
+		//send socket message
+		$scope.socketActions.stopRace();
 	},
 
 	$scope.socket = io();
@@ -38,7 +43,10 @@ var raceHorsesApp = angular.module('raceHorsesApp', [])
 
 	$scope.socketActions = {
 		startRace : function(){
-			$scope.socket.emit('raceStart', 'START RACE');
+			$scope.socket.emit('start_race', 'RACE STARTED');
+		},
+		stopRace : function(){
+			$scope.socket.emit('stop_race', ' RACE FINISHED');
 		}
 	};
 
@@ -47,12 +55,11 @@ var raceHorsesApp = angular.module('raceHorsesApp', [])
 			if(event.keyCode == 39) { // right
 				if($scope.params.raceStatus){
 					$scope.horseMovement('horse_2');
-					$scope.socket.emit('client_horse_movement');	
+					$scope.socket.emit('client_horse_movement', 'client_horse_movement');	
 				}
 			}
 		});
 	};
-
 
 	$scope.horseMovement = function(horseId){
 		$horse = $('.'+horseId);
