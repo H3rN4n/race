@@ -19,6 +19,8 @@ app.get('/', function(req, res) {
 	res.sendfile('./front-app/index.html');
 });
 
+
+// socket actions ======================================================================
 io.on('connection', function(socket){
   console.log('a user connected');
 
@@ -27,39 +29,41 @@ io.on('connection', function(socket){
   });
 
   socket.on('start_race', function(msg){
-     console.log('message: ' + msg);
-     race_controller.start_race();
+    console.log(msg);
+    race_controller.start_race();
   });
 
   socket.on('stop_race', function(msg){
-     console.log('message: ' + msg);
-     race_controller.stop_race();
+    console.log(msg);
+    race_controller.stop_race();
   });
 
-  socket.on('client_horse_movement', function(){
-    //race_controller.random_horse_movement();
+  socket.on('client_horse_movement', function(msg){
+    console.log(msg);
   });
   
 });
 
-//horse controller
+//race controller
 var race_controller = {
     start_race : function(){
-        this.horse_interval = setInterval(this.random_horse_movement(), 500);
+        this.isOver = false;
+        this.random_horse_movement();
+        console.log("race started");
     },
     stop_race : function(){
-        clearInterval(this.horse_interval);
+        this.isOver = true;
     },
+    isOver : null,
     random_horse_movement : function(){
-        var isMove = Math.random() < 0.5 ? true : false;
-        if(isMove){
-            io.emit('cpu_horse_movement');
-        }
-    },
-    clear_horse_interval : function(){
-        clearInterval(this.random_horse_movement);
-    },
-    horse_interval : null,
+        setInterval(function(){
+            console.log('check');
+            var isMove = Math.random() < 0.5 ? true : false;
+            if(isMove && race_controller.isOver == false){
+                io.emit('cpu_horse_movement');
+            }
+        }, 500);
+    }
 };
 
 // listen (start app with node server.js) ======================================
