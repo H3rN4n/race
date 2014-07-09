@@ -1,0 +1,29 @@
+{
+  "name": "racehorses",
+  "main": "index.js",
+  "version": "0.0.1",
+  "authors": [
+    "H3rN4n <desouza030689@gmail.com>"
+  ],
+  "description": "race horses in nodejs",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "less": "~1.7.3",
+    "normalize-css": "~3.0.1",
+    "angular": "~1.2.19",
+    "jquery": "~2.1.1",
+    "animate.css": "~3.2.0"
+  }
+}

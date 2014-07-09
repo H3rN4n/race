@@ -1,0 +1,11 @@
+{
+    "name": "RaceHorses",
+    "version": "0.0.1",
+    "description": "RaceHorsesBeta",
+    "dependencies": {
+        "moniker": "latest",
+        "socket.io": "latest",
+        "express": "~3.4.4"
+    },
+    "author": "H3rN4n"
+}

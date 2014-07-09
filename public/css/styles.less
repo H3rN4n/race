@@ -1,0 +1,62 @@
+.transition (@transition) {
+	-webkit-transition: @transition;  
+	-moz-transition:    @transition;
+	-ms-transition:     @transition; 
+	-o-transition:      @transition;  
+}
+
+#race-wrapper {
+	width: 1024px;
+	height: 768px;
+	margin: 0 auto;
+	background-image: url('../images/race-bg.jpg');
+	position: relative;
+
+	.horse {
+		width: 199px;
+		height: 160px;
+		position: absolute;
+		left: 0%;
+		background-repeat: no-repeat;
+		.transition(0.5s);
+	}
+
+	.horse.moving {
+		
+	}
+
+	.horse_1 {
+		top: 314px;
+		background-image: url('../images/horse1.png');
+	}
+
+	.horse_2 {
+		top: 423px;
+		background-image: url('../images/horse2.png');
+	}
+
+	.btn{
+		outline: none;
+	}
+
+	.btn-start {
+		border: 4px solid #562b0c;
+		padding: 0.5em;
+		text-align: center;
+		vertical-align: middle;
+		background-color: #d7bb52;
+		border-radius: 1em;
+		font-size: 2em;
+		color: green;
+		position: absolute;
+		margin: 0 42%;
+		bottom: 0.9em;
+		cursor: pointer;
+		font-family: sans-serif;
+	}
+
+	.btn-start.expanded{
+		width: 400px;
+		margin: 0 32%;
+	}
+}
