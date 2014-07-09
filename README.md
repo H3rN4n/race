@@ -9,4 +9,8 @@ Para poder ejecutar la aplicacion se deben instalar las dependencias correspondi
 
 npm install y bower install.
 
+Y finalmente para ejecutar el servidor el comando:
+
+node server.js
+
 Cualquier consulta mi correo es: desouza030689@gmail.com.

@@ -51,4 +51,4 @@ var horse_controller = {
 // config
 var port = 3250;
 http.listen(port);
-console.log("http listening on port " + port);
+console.log("server listening on port " + port);
