@@ -5,7 +5,7 @@ var raceHorsesApp = angular.module('raceHorsesApp', [])
 	$scope.params = {
 		aceleration : 100,
 		raceStatus : false
-	}
+	};
 
 	$scope.startRace = function(){
 		$element = $(".btn-start");
@@ -33,7 +33,7 @@ var raceHorsesApp = angular.module('raceHorsesApp', [])
 
 		//send socket message
 		$scope.socketActions.stopRace();
-	},
+	};
 
 	$scope.socket = io();
 	$scope.socket.on('cpu_horse_movement', function(msg){
@@ -52,10 +52,10 @@ var raceHorsesApp = angular.module('raceHorsesApp', [])
 
 	$scope.rightKeyEventListener = function(){
 		$(document).on('keydown', function(event) {
-			if(event.keyCode == 39) { // right
+			if(event.keyCode == 39) {
 				if($scope.params.raceStatus){
 					$scope.horseMovement('horse_2');
-					$scope.socket.emit('client_horse_movement', 'client_horse_movement');	
+					$scope.socket.emit('client_horse_movement', 'client_horse_movement');
 				}
 			}
 		});
