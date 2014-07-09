@@ -10,7 +10,10 @@
 <body>
 	<section>
 		<article>
-			<div id="race-wrapper" data-ng-controller="MainCtrl">
+			<div id="intro-wrapper">
+				<img src="public/images/intro.jpg" class='animated bounceIn' alt="win horse">
+			</div>
+			<div id="race-wrapper" class="hidden" data-ng-controller="MainCtrl">
 				<div class="horse horse_1" data-horse-number="Caballo 1" ></div>
 				<div class="horse horse_2" data-horse-number="Caballo 2"></div>
 				<start-button></start-button>
@@ -22,6 +25,15 @@
 	<script src="/public/components/angular/angular.min.js" type="text/javascript"></script>
 	<script src="/public/components/jquery/dist/jquery.min.js" type="text/javascript"></script>
 	<script src="/public/js/main.js" type="text/javascript"></script>
+	<script>
+		setTimeout(function(){
+			$('#intro-wrapper').fadeOut('slow', function() {
+				$('#race-wrapper').fadeIn('fast', function() {
+					
+				});
+			});
+		}, 2000);
+	</script>
 	<!-- END MISC -->
 
 	<!-- BEGIN SOCKETS -->
