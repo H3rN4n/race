@@ -2,9 +2,9 @@
 var application_root = __dirname,
     express = require("express"),
     path = require("path"),
-    app = module.exports = express();
-    http = require('http').Server(app),
-	io = require('socket.io')(http);
+    app = express();
+    http = module.exports = require('http').Server(app),
+	io =  require('socket.io')(http);
 // configuration =================
 
 app.configure(function() {
