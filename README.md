@@ -7,10 +7,10 @@ Esta desarrollada con Nodejs y Socket.io del lado del servidor y Jquery, Angular
 
 Para poder ejecutar la aplicacion se deben instalar las dependencias correspondientes con los comandos:
 
-npm install y bower install.
+`npm install` y `bower install`.
 
 Y finalmente para ejecutar el servidor el comando:
 
-node server.js
+`node server.js`
 
 Cualquier consulta mi correo es: desouza030689@gmail.com.
