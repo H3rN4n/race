@@ -53,18 +53,25 @@ var race_controller = {
     },
     stop_race : function(){
         this.isOver = true;
+        this.clear_horse_interval();
     },
     isOver : null,
+    horse_interval: null,
     random_horse_movement : function(){
-        setInterval(function(){
+        this.horse_interval = setInterval(function(){
             console.log('check');
             var isMove = Math.random() < 0.5 ? true : false;
             if(isMove && race_controller.isOver == false){
                 io.emit('cpu_horse_movement');
             }
         }, 500);
+    },
+    clear_horse_interval : function(){
+      clearInterval(this.horse_interval);
     }
 };
+
+//exports.race_controller = race_controller;
 
 // listen (start app with node server.js) ======================================
 // config
