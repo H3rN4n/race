@@ -26,6 +26,7 @@ io.on('connection', function(socket){
 
   socket.on('disconnect', function(){
     console.log('user disconnected');
+    race_controller.stop_race();
   });
 
   socket.on('start_race', function(msg){
