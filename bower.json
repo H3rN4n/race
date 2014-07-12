@@ -24,6 +24,7 @@
     "normalize-css": "~3.0.1",
     "angular": "~1.2.19",
     "jquery": "~2.1.1",
-    "animate.css": "~3.2.0"
+    "animate.css": "~3.2.0",
+    "buzz": "~1.1.3"
   }
 }
