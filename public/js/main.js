@@ -7,6 +7,11 @@ var raceHorsesApp = angular.module('raceHorsesApp', [])
 		raceStatus : false
 	};
 
+	/**
+	 * Description
+	 * @method startRace
+	 * @return 
+	 */
 	$scope.startRace = function(){
 		$element = $(".btn-start");
 		if(!$element.hasClass('started')){
@@ -19,11 +24,21 @@ var raceHorsesApp = angular.module('raceHorsesApp', [])
 		}
 	};
 
+	/**
+	 * Description
+	 * @method stopRace
+	 * @return 
+	 */
 	$scope.stopRace = function(){
 		$scope.showTheWinnerHorse();
 		$scope.params.raceStatus = false;
 	};
 
+	/**
+	 * Description
+	 * @method showTheWinnerHorse
+	 * @return 
+	 */
 	$scope.showTheWinnerHorse = function(){
 		$winner = $('.winner');
 		var winner_name = $winner.data('horse-number');
@@ -42,14 +57,29 @@ var raceHorsesApp = angular.module('raceHorsesApp', [])
 	});
 
 	$scope.socketActions = {
+		/**
+		 * Description
+		 * @method startRace
+		 * @return 
+		 */
 		startRace : function(){
 			$scope.socket.emit('start_race', 'RACE STARTED');
 		},
+		/**
+		 * Description
+		 * @method stopRace
+		 * @return 
+		 */
 		stopRace : function(){
 			$scope.socket.emit('stop_race', ' RACE FINISHED');
 		}
 	};
 
+	/**
+	 * Description
+	 * @method rightKeyEventListener
+	 * @return 
+	 */
 	$scope.rightKeyEventListener = function(){
 		$(document).on('keydown', function(event) {
 			if(event.keyCode == 39) {
@@ -61,6 +91,11 @@ var raceHorsesApp = angular.module('raceHorsesApp', [])
 		});
 	};
 
+	/**
+	 * Description
+	 * @method counterAction
+	 * @return 
+	 */
 	$scope.counterAction = function(){
 		var $counter = $('.counter');
 		var i = 3;
@@ -83,6 +118,12 @@ var raceHorsesApp = angular.module('raceHorsesApp', [])
 		}, 1000);
 	};
 
+	/**
+	 * Description
+	 * @method horseMovement
+	 * @param {} horseId
+	 * @return 
+	 */
 	$scope.horseMovement = function(horseId){
 		$horse = $('.'+horseId);
 		var currentPos = parseInt($horse.css('left'));
@@ -91,6 +132,11 @@ var raceHorsesApp = angular.module('raceHorsesApp', [])
 		$horse.css({ 'left' : nextPos });
 	};
 
+	/**
+	 * Description
+	 * @method finishLineListener
+	 * @return 
+	 */
 	$scope.finishLineListener = function(){
 		//finish at 650px
 		var check_interval = setInterval(function(){
