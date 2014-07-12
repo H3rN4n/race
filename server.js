@@ -10,7 +10,7 @@ var application_root = __dirname,
 // configuration =================
 app.configure(function() {
 	app.use('/public', express.static(__dirname + '/public'));
-    app.use('/assets', express.static(__dirname + '/apidocs/assets'));
+    app.use('/api/assets', express.static(__dirname + '/apidocs/assets'));
 	app.use(express.logger('dev'));
 	app.use(express.bodyParser());
 });
@@ -23,6 +23,17 @@ app.get('/', function(req, res) {
 
 app.get('/api', function(req, res) {
     res.sendfile('./apidocs/index.html');
+});
+
+app.get('/api/:type/:gender', function(req, res) {
+    var type = req.params.type;
+    var gender = req.params.gender;
+    
+    var route = './apidocs/' + type + '/' + gender;
+
+    console.log(route);
+    res.sendfile(route);
+
 });
 
 

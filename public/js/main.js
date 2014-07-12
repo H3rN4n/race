@@ -1,3 +1,9 @@
+/**
+ * Provides the base Widget class...
+ *
+ * @class front_raceHorsesApp
+ * 
+ */
 var raceHorsesApp = angular.module('raceHorsesApp', [])
 
 .controller('MainCtrl', ['$scope', function ($scope) {

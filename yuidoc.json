@@ -4,8 +4,8 @@
     "version": "1.2.1",
     "url": "",
     "options": {
-    	"ignorePaths": [ "node_modules", "public/components" ],
-        "paths": "*/js",
+    	"ignorePaths": [ "/node_modules", "/public/components" ],
+        "paths": ["server_modules", "public/js"],
         "outdir": "apidocs"
     }
 }

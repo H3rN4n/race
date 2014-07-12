@@ -43,7 +43,7 @@ module.exports = function(grunt) {
             cmd: 'smartcomments -g --config smartcomments.json'
         },
         yuidoc: {
-            cmd: 'yuidoc -c yuidoc.json ./'
+            cmd: 'yuidoc -c yuidoc.json'
         },
         server: {
             cmd: ""

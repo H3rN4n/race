@@ -1,8 +1,13 @@
-//race controller
+/**
+ * Provides the base Widget class...
+ *
+ * @class node_race_controller
+ * @main node_race_controller
+ */
 var race_controller = module.exports.race_controller = {
     /**
      * Description
-     * @method start_race
+     * @property start_race
      * @return 
      */
     start_race : function(){
