@@ -10,6 +10,7 @@ var application_root = __dirname,
 // configuration =================
 app.configure(function() {
 	app.use('/public', express.static(__dirname + '/public'));
+    app.use('/assets', express.static(__dirname + '/apidocs/assets'));
 	app.use(express.logger('dev'));
 	app.use(express.bodyParser());
 });
@@ -18,6 +19,10 @@ app.configure(function() {
 // get home
 app.get('/', function(req, res) {
 	res.sendfile('./front-app/index.html');
+});
+
+app.get('/api', function(req, res) {
+    res.sendfile('./apidocs/index.html');
 });
 
 

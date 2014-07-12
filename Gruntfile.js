@@ -27,21 +27,36 @@ module.exports = function(grunt) {
     },
     watch: {
       styles: {
-        files: ['public/css/*.less', 'front-app/*' , 'public/js/*.js'], // which files to watch
+        files: ['public/css/*.less', 'front-app/*' , '*.js'], // which files to watch
         tasks: ['less'],
         options: {
           nospawn: true
         }
       }
+    },
+    shell: {                                // Task
+        smartcomments: {                      // Target
+            options: {                      // Options
+                stderr: false
+            },
+            command: 'smartcomments -g --config smartcomments.json'
+        },
+        yuidoc: {                      // Target
+            options: {                      // Options
+
+            },
+            command: 'yuidoc -c yuidoc.json ./'
+        }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-shell');
 
 
-  grunt.registerTask('default', ['less', 'server', 'watch']);
+  grunt.registerTask('default', ['less', 'shell:smartcomments', 'shell:yuidoc', 'server', 'watch']);
   grunt.registerTask('uglify', ['uglify']);
 
   grunt.registerTask('server', 'Start a custom web server', function() {
