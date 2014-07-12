@@ -34,18 +34,19 @@ module.exports = function(grunt) {
         }
       }
     },
-    shell: {                                // Task
-        smartcomments: {                      // Target
-            options: {                      // Options
-                stderr: false
-            },
-            command: 'smartcomments -g --config smartcomments.json'
+    bgShell: {
+        _defaults: {
+          bg: true
         },
-        yuidoc: {                      // Target
-            options: {                      // Options
-
-            },
-            command: 'yuidoc -c yuidoc.json ./'
+        smartcomments: {
+            bg: false,
+            cmd: 'smartcomments -g --config smartcomments.json'
+        },
+        yuidoc: {
+            cmd: 'yuidoc -c yuidoc.json ./'
+        },
+        server: {
+            cmd: ""
         }
     }
   });
@@ -53,11 +54,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-bg-shell');
 
-
-  grunt.registerTask('default', ['less', 'shell:smartcomments', 'shell:yuidoc', 'server', 'watch']);
-  grunt.registerTask('uglify', ['uglify']);
+  grunt.registerTask('default', ['less', 'bgShell:smartcomments', 'bgShell:yuidoc', 'server', 'watch']);
 
   grunt.registerTask('server', 'Start a custom web server', function() {
     grunt.log.writeln('Started web server on port 3250');
