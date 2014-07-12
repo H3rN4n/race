@@ -24,29 +24,15 @@
 
 	<!-- BEGIN MISC -->
 	<script src="/public/components/angular/angular.min.js" type="text/javascript"></script>
-	<script src="/public/components/buzz/dist/buzz.min.js" type="text/javascript"></script>
 	<script src="/public/components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+	<script src="/socket.io/socket.io.js"></script>
 	<script src="/public/js/main.js" type="text/javascript"></script>
-	<script>
-		var call_to_race = new buzz.sound( "/public/sounds/call_to_race.mp3" );
-		var soundtrack = new buzz.sound( "/public/sounds/soundtrack.mp3" );
-
-		setTimeout(function(){
-			$('#intro-wrapper').fadeOut('slow', function() {
-				$('#race-wrapper').fadeIn('fast', function() {
-					call_to_race.play().bind('ended', function(){
-						soundtrack.play();
-					});
-				   	//soundtrack.play(); 
-				});
-			});
-		}, 2000);
-	</script>
 	<!-- END MISC -->
 
-	<!-- BEGIN SOCKETS -->
-	<script src="/socket.io/socket.io.js"></script>
-	<!-- END SOCKETS -->
+	<!-- BEGIN INTRO AND SOUND  -->
+	<script src="/public/components/buzz/dist/buzz.min.js" type="text/javascript"></script>
+	<script src="/public/js/animAndSound.js" type="text/javascript"></script>
+	<!-- FIN INTRO AND SOUND  -->
 
 </body>
 </html>
