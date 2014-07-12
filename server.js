@@ -43,8 +43,12 @@ io.on('connection', function(socket){
   });
   
 });
-
+//socket.id para verfigivar el usuario
+//io.socket(id).emit
+//@todo: almacenar los ids en un array 
+//@todo: mandar a middleware
 //race controller
+
 var race_controller = {
     start_race : function(){
         this.isOver = false;
