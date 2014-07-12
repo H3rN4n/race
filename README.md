@@ -14,8 +14,10 @@ Abrir la linea de comandos y ejecutar:
 1. Instalación de las dependencias de Node: `npm install`.
 2. Instalación de el gestor de dependencias de Front-End: `npm install -g bower`.
 3. Instalación de las dependencias del Front-End: `bower install`.
-4. Minificación de CSS y JS e inicio de el servidor con Grunt: `grunt`.
+4. Inicio de tasks con Grunt: `grunt`.
 
 Finalmente entrar a [Carrera de Caballos](http://localhost:3250).
+
+[Documentacion de la API](http://localhost:3250/api/) `autogenerada` en el build.
 
 Cualquier consulta mi correo es: desouza030689@gmail.com.
