@@ -7,7 +7,7 @@
 var race_controller = module.exports.race_controller = {
     /**
      * Description
-     * @property start_race
+     * @method start_race
      * @return 
      */
     start_race : function(){
