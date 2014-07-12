@@ -61,6 +61,28 @@ var raceHorsesApp = angular.module('raceHorsesApp', [])
 		});
 	};
 
+	$scope.counterAction = function(){
+		var $counter = $('.counter');
+		var i = 3;
+
+		var interval = setInterval(function(){
+			if(i == 0){
+				$counter.text('YA!');
+				$scope.startRace();
+				setTimeout(function(){
+					$counter.fadeOut('fast', function() {
+						
+					});
+				}, 1000);
+				clearInterval(interval);
+			}else{
+				$counter.text(i);
+				i--;
+			}
+
+		}, 1000);
+	};
+
 	$scope.horseMovement = function(horseId){
 		$horse = $('.'+horseId);
 		var currentPos = parseInt($horse.css('left'));
@@ -92,6 +114,6 @@ var raceHorsesApp = angular.module('raceHorsesApp', [])
 .directive('startButton', [function () {
 	return {
 		restrict: 'E',
-		template: '<button class="btn btn-start" data-ng-click="startRace()">Comenzar</button>'
+		template: '<button class="btn btn-start" data-ng-click="counterAction()">Comenzar</button>'
 	};
 }]);
