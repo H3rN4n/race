@@ -11,7 +11,7 @@ var raceHorsesApp = angular.module('raceHorsesApp', [])
 	$scope.params = {
 		aceleration : 100,
 		raceStatus : false,
-		username: null,
+		room: null,
 		userid: null
 	};
 
@@ -61,11 +61,12 @@ var raceHorsesApp = angular.module('raceHorsesApp', [])
 	//sockets actions
 	$scope.socket = io();
 
-	$scope.socket.on('login_as', function(data){
-		console.log('login_as ' + data.username);
-		console.log('login_id ' + data.id);
-		$scope.params.username = data.username;
+	$scope.socket.on('login', function(data){
+		console.log('room ' + data.room);
+		console.log('id ' + data.id);
+		$scope.params.room = data.room;
 		$scope.params.userid = data.id;
+		//$scope.socket.emit('create_room', $scope.params.room);
 	});
 
 	$scope.socket.on('cpu_horse_movement', function(msg){
