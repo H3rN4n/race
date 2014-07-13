@@ -10,7 +10,9 @@ var raceHorsesApp = angular.module('raceHorsesApp', [])
 
 	$scope.params = {
 		aceleration : 100,
-		raceStatus : false
+		raceStatus : false,
+		username: null,
+		userid: null
 	};
 
 	/**
@@ -56,7 +58,16 @@ var raceHorsesApp = angular.module('raceHorsesApp', [])
 		$scope.socketActions.stopRace();
 	};
 
+	//sockets actions
 	$scope.socket = io();
+
+	$scope.socket.on('login_as', function(data){
+		console.log('login_as ' + data.username);
+		console.log('login_id ' + data.id);
+		$scope.params.username = data.username;
+		$scope.params.userid = data.id;
+	});
+
 	$scope.socket.on('cpu_horse_movement', function(msg){
 		console.log('cpu_horse_movement');
 		$scope.horseMovement('horse_1');
@@ -69,7 +80,7 @@ var raceHorsesApp = angular.module('raceHorsesApp', [])
 		 * @return 
 		 */
 		startRace : function(){
-			$scope.socket.emit('start_race', 'RACE STARTED');
+			$scope.socket.emit('start_race', { 'username': $scope.params.username, 'id': $scope.params.userid });
 		},
 		/**
 		 * Description
@@ -77,7 +88,7 @@ var raceHorsesApp = angular.module('raceHorsesApp', [])
 		 * @return 
 		 */
 		stopRace : function(){
-			$scope.socket.emit('stop_race', ' RACE FINISHED');
+			$scope.socket.emit('stop_race', { 'username': $scope.params.username, 'id': $scope.params.userid });
 		}
 	};
 

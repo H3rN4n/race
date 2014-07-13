@@ -11,7 +11,8 @@
     "grunt-contrib-uglify": "^0.5.0",
     "smartcomments": "^0.3.2",
     "yuidocjs": "^0.3.50",
-    "grunt-bg-shell": "^2.3.1"
+    "grunt-bg-shell": "^2.3.1",
+    "moniker": "^0.1.2"
   },
   "author": "H3rN4n"
 }
