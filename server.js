@@ -1,12 +1,14 @@
 // set up ========================
-var application_root = __dirname,
-    express = require('express'),
-    path = require('path'),
-    app = express(),
-    http = module.exports = require('http').Server(app),
-    race = require('./server_modules/race'),
-    io =  require('socket.io')(http);
+var application_root = __dirname;
+var express = require('express');
+var path = require('path');
+var app = express();
+var http = module.exports = require('http').Server(app);
+var race_module = require('./server_modules/race_module');
+var moniker = require('moniker');
+var io =  require('socket.io')(http);
 
+console.log(race_module);
 // configuration =================
 app.configure(function() {
 	app.use('/public', express.static(__dirname + '/public'));
