@@ -3,16 +3,17 @@
   "version": "0.0.1",
   "description": "RaceHorsesBeta",
   "dependencies": {
+    "express": "latest",
+    "grunt": "latest",
+    "grunt-bg-shell": "latest",
+    "grunt-contrib-less": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "moniker": "latest",
+    "smartcomments": "latest",
     "socket.io": "latest",
-    "express": "~3.4.4",
-    "grunt": "~0.4.5",
-    "grunt-contrib-less": "~0.11.0",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-contrib-uglify": "^0.5.0",
-    "smartcomments": "^0.3.2",
-    "yuidocjs": "^0.3.50",
-    "grunt-bg-shell": "^2.3.1",
-    "moniker": "^0.1.2"
+    "underscore": "latest",
+    "yuidocjs": "latest"
   },
   "author": "H3rN4n"
 }
