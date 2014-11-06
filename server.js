@@ -10,12 +10,14 @@ var race_sockets_module = require('./server_modules/race_sockets_module');
 var io = require('socket.io')(http);*/
 
 // configuration =================
-app.configure(function() {
-	app.use('/public', express.static(__dirname + '/public'));
-    app.use('/api/assets', express.static(__dirname + '/apidocs/assets'));
-	app.use(express.logger('dev'));
-	app.use(express.bodyParser());
-});
+
+//app.get('./public', express.static(__dirname + './public'));
+//app.use('./api/assets', express.static(__dirname + './apidocs/assets'));
+var env = process.env.NODE_ENV || 'development';
+//app.use(express.logger('dev'));
+//app.use(express.bodyParser());
+//app.use(express.static(__dirname + '/public'));
+app.use('/public', express.static(__dirname + '/public'));
 
 // routes ======================================================================
 // get home

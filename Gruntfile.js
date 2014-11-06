@@ -56,7 +56,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-bg-shell');
 
-  grunt.registerTask('default', ['less', 'bgShell:smartcomments', 'bgShell:yuidoc', 'server', 'watch']);
+  grunt.registerTask('default', ['less', 'server', 'watch']);
 
   grunt.registerTask('server', 'Start a custom web server', function() {
     grunt.log.writeln('Started web server on port 3250');
